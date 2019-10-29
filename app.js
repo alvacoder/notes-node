@@ -7,6 +7,7 @@ const note = require('./notes');
 
 let command = process.argv[2];
 console.log('Command: ' + command);
+console.log(process.argv);
 
 if (command === 'add') {
     console.log('Adding new note...');
