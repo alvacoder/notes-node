@@ -1,18 +1,21 @@
 console.log('Starting App');
 
-const os = require('os');
-const user = os.userInfo();
-const note = require('./notes');
-console.log(user);
-console.log(user.username);
-
+const _ = require('lodash');
 const fs = require('fs');
 
-fs.appendFile('greeting.txt', 'Hello ' + user.username, function (error) {
-    if(error) {
-        console.log('unable to write to file');
-    }
-})
+const note = require('./notes');
 
-let sum = note.addNote(7, -2);
-console.log(sum);
+let command = process.argv[2];
+console.log('Command: ' + command);
+
+if (command === 'add') {
+    console.log('Adding new note...');
+} else if (command === 'remove') {
+    console.log('Removing note...');
+} else if (command === 'write') {
+    console.log('Writing to note...');
+} else if (command === 'read') {
+    console.log('Reading note...');
+} else {
+    console.log('Command not recognised');
+}
