@@ -1,4 +1,9 @@
-console.log('Starting Notes');
-module.exports.addNote = (num1, num2) => {
-    return num1 + num2;
+console.log('Starting notes...');
+
+addNote = (title, body) => {
+    console.log(title, ':', body);
+}
+
+module.exports = {
+    addNote
 }

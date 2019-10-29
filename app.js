@@ -2,15 +2,20 @@ console.log('Starting App');
 
 const _ = require('lodash');
 const fs = require('fs');
+const yargs = require('yargs');
 
-const note = require('./notes');
+const notes = require('./notes');
 
 let command = process.argv[2];
-console.log('Command: ' + command);
-console.log(process.argv);
+const argv = yargs.argv;
+
+console.log('Command: ' , command);
+console.log('Process: ' , process.argv);
+console.log('Yargs: ' , argv);
 
 if (command === 'add') {
     console.log('Adding new note...');
+    notes.addNote(argv.title, argv.body);
 } else if (command === 'remove') {
     console.log('Removing note...');
 } else if (command === 'write') {
