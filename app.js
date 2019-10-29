@@ -18,10 +18,13 @@ if (command === 'add') {
     notes.addNote(argv.title, argv.body);
 } else if (command === 'remove') {
     console.log('Removing note...');
+    no
 } else if (command === 'write') {
     console.log('Writing to note...');
 } else if (command === 'read') {
     console.log('Reading note...');
+} else if (command === 'list') {
+    console.log('Listing all notes...');
 } else {
     console.log('Command not recognised');
 }
