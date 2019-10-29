@@ -10,15 +10,12 @@ let command = process.argv[2];
 const argv = yargs.argv;
 
 console.log('Command: ' , command);
-console.log('Process: ' , process.argv);
 console.log('Yargs: ' , argv);
 
 if (command === 'add') {
-    console.log('Adding new note...');
     notes.addNote(argv.title, argv.body);
 } else if (command === 'remove') {
-    console.log('Removing note...');
-    no
+    notes.removeNote(argv.title);
 } else if (command === 'write') {
     console.log('Writing to note...');
 } else if (command === 'read') {
