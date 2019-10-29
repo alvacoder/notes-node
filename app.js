@@ -19,7 +19,7 @@ if (command === 'add') {
 } else if (command === 'write') {
     console.log('Writing to note...');
 } else if (command === 'read') {
-    console.log('Reading note...');
+    notes.readNote(argv.title, argv.body);
 } else if (command === 'list') {
     console.log('Listing all notes...');
 } else {
