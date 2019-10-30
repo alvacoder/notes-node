@@ -15,13 +15,17 @@ let addNote = (title, body) => {
         return note;
         
     } else {
-        
+
     }
 
 }
 
 let removeNote = (title) => {
     console.log('Removing note: ', title);
+    let notes = fetchNotes();
+    let filteredNote = notes.filter((note) => note.title !== title);
+    saveNote(filteredNote);
+    return notes.length !== filteredNote.length;
 }
 
 let getNote = (title) => {

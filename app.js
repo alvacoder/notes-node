@@ -13,9 +13,9 @@ console.log('Command: ' , command);
 //console.log('Yargs: ' , argv);
 
 if (command === 'add') {
-    var note = notes.addNote(argv.title, argv.body);
+    let note = notes.addNote(argv.title, argv.body);
     if(note) {
-        console.log(argv.title, ' was created successfully');
+        console.log(note.title, ' was added successfully.');
         console.log('--');
         console.log(`Title: ${note.title}`);
         console.log(`Body: ${note.body}`);
@@ -23,7 +23,8 @@ if (command === 'add') {
         console.log('Note title already exists.');
     }
 } else if (command === 'remove') {
-    notes.removeNote(argv.title);
+    let noteRemoved = notes.removeNote(argv.title);
+    noteRemoved ? console.log(`${argv.title} was removed successfully.`) : console.log(`Error: ${argv.title} not found.`);
 } else if (command === 'write') {
     console.log('Writing to note...');
 } else if (command === 'read') {
