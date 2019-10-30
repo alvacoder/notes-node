@@ -7,11 +7,21 @@ let addNote = (title, body) => {
     let notes = [];
     let note = {title, body};
 
-    let curNoteString = fs.readFileSync('notes-data.json');
-    notes = JSON.parse(curNoteString);
+    try {
+        let curNoteString = fs.readFileSync('notes-data.json');
+        notes = JSON.parse(curNoteString);   
+    } catch (error) {
 
-    notes.push(note);
-    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    }
+
+    let duplicateNotes = notes.filter((note) => note.title === title);
+
+    if(duplicateNotes === 0) {
+        notes.push(note);
+        fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    } else {
+        console.log('A note already exists with this title: ', title);
+    }
 
 }
 
