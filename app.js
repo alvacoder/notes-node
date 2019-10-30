@@ -1,18 +1,36 @@
 console.log('Starting App');
 
-const os = require('os');
-const user = os.userInfo();
-const note = require('./notes');
-console.log(user);
-console.log(user.username);
-
+const _ = require('lodash');
 const fs = require('fs');
+const yargs = require('yargs');
 
-fs.appendFile('greeting.txt', 'Hello ' + user.username, function (error) {
-    if(error) {
-        console.log('unable to write to file');
+const notes = require('./notes');
+
+const argv = yargs.argv;
+let command = argv._[0];
+
+console.log('Command: ' , command);
+//console.log('Yargs: ' , argv);
+
+if (command === 'add') {
+    let note = notes.addNote(argv.title, argv.body);
+    if(note) {
+        console.log(note.title, ' was added successfully.');
+        console.log('--');
+        console.log(`Title: ${note.title}`);
+        console.log(`Body: ${note.body}`);
+    } else {
+        console.log('Note title already exists.');
     }
-})
-
-let sum = note.addNote(7, -2);
-console.log(sum);
+} else if (command === 'remove') {
+    let noteRemoved = notes.removeNote(argv.title);
+    noteRemoved ? console.log(`${argv.title} was removed successfully.`) : console.log(`Error: ${argv.title} not found.`);
+} else if (command === 'write') {
+    console.log('Writing to note...');
+} else if (command === 'read') {
+    notes.getNote(argv.title);
+} else if (command === 'list') {
+    console.log('Listing all notes...');
+} else {
+    console.log('Command not recognised');
+}
