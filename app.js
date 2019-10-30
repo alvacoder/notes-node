@@ -10,7 +10,7 @@ const argv = yargs.argv;
 let command = argv._[0];
 
 console.log('Command: ' , command);
-console.log('Yargs: ' , argv);
+//console.log('Yargs: ' , argv);
 
 if (command === 'add') {
     notes.addNote(argv.title, argv.body);
