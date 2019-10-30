@@ -52,9 +52,16 @@ let saveNote = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 }
 
+let logNote = (note) => {
+    console.log('--');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+}
+
 module.exports = {
     addNote,
     removeNote,
     getNote,
-    getAll
+    getAll,
+    logNote
 }
