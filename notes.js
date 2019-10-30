@@ -29,7 +29,10 @@ let removeNote = (title) => {
 }
 
 let getNote = (title) => {
-    console.log('Getting  note : ', title);
+    console.log('Fetching note : ', title);
+    let notes = fetchNotes();
+    let filteredNote = notes.filter((note) => note.title === title);
+    return filteredNote[0];
 }
 
 let getAll = () => {
@@ -49,9 +52,16 @@ let saveNote = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 }
 
+let logNote = (note) => {
+    console.log('--');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+}
+
 module.exports = {
     addNote,
     removeNote,
     getNote,
-    getAll
+    getAll,
+    logNote
 }
