@@ -17,6 +17,7 @@ const argv = yargs
             alias: 'b'
         }
     })
+    .command('list', 'List all notes')
     .help()
     .argv;
 let command = argv._[0];
