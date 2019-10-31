@@ -1,5 +1,3 @@
-console.log('Starting App');
-
 const _ = require('lodash');
 const fs = require('fs');
 const yargs = require('yargs');
@@ -9,7 +7,7 @@ const notes = require('./notes');
 const argv = yargs.argv;
 let command = argv._[0];
 
-console.log('Command: ' , command);
+//console.log('Command: ' , command);
 //console.log('Yargs: ' , argv);
 
 if (command === 'add') {
@@ -35,9 +33,8 @@ if (command === 'add') {
     }
 } else if (command === 'list') {
     let allNotes = notes.getAll();
+    console.log(`${allNotes.length} notes found...`);
     allNotes.forEach((note) => notes.logNote(note));
-    console.log(`Listing `)
-    console.log('Listing all notes...');
 } else {
     console.log('Command not recognised');
 }
