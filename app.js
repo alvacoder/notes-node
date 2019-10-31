@@ -34,6 +34,9 @@ if (command === 'add') {
         console.log(`${argv.title} not found.`);
     }
 } else if (command === 'list') {
+    let allNotes = notes.getAll();
+    allNotes.forEach((note) => notes.logNote(note));
+    console.log(`Listing `)
     console.log('Listing all notes...');
 } else {
     console.log('Command not recognised');

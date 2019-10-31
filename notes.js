@@ -37,6 +37,8 @@ let getNote = (title) => {
 
 let getAll = () => {
      console.log('Getting all notes');
+     let notes = fetchNotes();
+     return notes;
 }
 
 let fetchNotes = () => {
@@ -53,6 +55,7 @@ let saveNote = (notes) => {
 }
 
 let logNote = (note) => {
+    //debugger;
     console.log('--');
     console.log(`Title: ${note.title}`);
     console.log(`Body: ${note.body}`);
