@@ -25,6 +25,13 @@ const argv = yargs
             alias: 'r'
         }
     })
+    .command('remove', 'Remove note', {
+        title: {
+            describe: 'Title of Note',
+            demand: true,
+            alias: 't'
+        }
+    })
     .help()
     .argv;
 let command = argv._[0];
